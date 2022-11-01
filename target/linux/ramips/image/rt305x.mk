@@ -355,6 +355,15 @@ define Device/fonera20n
 endef
 TARGET_DEVICES += fonera20n
 
+define Device/fon2405e
+  DTS := FON2405E
+  IMAGE_SIZE := $(ralink_default_fw_size_8M)
+  BLOCK_SIZE := 4k
+  DEVICE_TITLE := Fon FON2405E
+  DEVICE_PACKAGES := kmod-leds-gpio
+endef
+TARGET_DEVICES += fon2405e
+
 define Device/freestation5
   DTS := FREESTATION5
   DEVICE_TITLE := ARC Wireless FreeStation
