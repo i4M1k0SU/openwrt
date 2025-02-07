@@ -18,6 +18,21 @@ define Device/xikestor_sks8300-8x
 endef
 TARGET_DEVICES += xikestor_sks8300-8x
 
+define Device/keeplink_kp-9000-8xm
+  SOC := rtl9303
+  UIMAGE_MAGIC := 0x93000000
+  DEVICE_VENDOR := keepLiNK
+  DEVICE_MODEL := KP-9000-8XM
+  IMAGE_SIZE := 14336k
+  KERNEL_INITRAMFS := \
+	kernel-bin | \
+	append-dtb | \
+  gzip | \
+	uImage gzip | \
+	check-size
+endef
+TARGET_DEVICES += keeplink_kp-9000-8xm
+
 define Device/zyxel_xgs1250-12
   SOC := rtl9302
   UIMAGE_MAGIC := 0x93001250
