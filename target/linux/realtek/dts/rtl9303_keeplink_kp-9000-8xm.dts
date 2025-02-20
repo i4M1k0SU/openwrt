@@ -219,47 +219,60 @@
 			#address-cells = <1>;
 			#size-cells = <1>;
 
+			/* LOADER */
 			partition@0 {
 				label = "u-boot";
 				reg = <0x0 0xe0000>;
 				read-only;
 			};
 
+			/* BDINFO */
 			partition@e0000{
-				label = "board-info";
+				label = "u-boot-env";
 				reg = <0xe0000 0x10000>;
 				read-only;
 			};
 
+			/* SYSINFO */
 			partition@f0000 {
-				label = "sysinfo";
+				label = "u-boot-env2";
 				reg = <0xf0000 0x10000>;
 				read-only;
 			};
 
+			/* JFFS2_CFG */
 			partition@100000 {
-				label = "jffs2-cfg";
+				label = "jffs2_cfg";
 				reg = <0x100000 0x100000>;
+				read-only;
 			};
 
+			/* JFFS2_LOG */
 			partition@200000 {
-				label = "jffs2-log";
+				label = "jffs2_log";
 				reg = <0x200000 0x100000>;
+				read-only;
 			};
 
+			/* RUNTIME */
 			partition@300000 {
-				label = "runtime";
+				compatible = "openwrt,uimage", "denx,uimage";
+				label = "firmware";
 				reg = <0x300000 0xe00000>;
+				openwrt,ih-magic = <0x93000000>;
 			};
 
+			/* RUNTIME2 */
 			partition@1100000 {
 				label = "runtime2";
 				reg = <0x1100000 0xe00000>;
 			};
 
+			/* OEMINFO */
 			partition@1f00000 {
 				label = "oeminfo";
 				reg = <0x1f00000 0x100000>;
+				read-only;
 			};
 		};
 	};

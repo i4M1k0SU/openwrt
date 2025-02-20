@@ -23,13 +23,15 @@ define Device/keeplink_kp-9000-8xm
   UIMAGE_MAGIC := 0x93000000
   DEVICE_VENDOR := keepLiNK
   DEVICE_MODEL := KP-9000-8XM
-  IMAGE_SIZE := 14336k
+  # U-Boot, RUNTIME1: 0xe80000 RUNTIME2: 0xd80000
+  # Stock firmware, RUNTIME: 0xe00000 RUNTIME2: 0xe00000
+  IMAGE_SIZE := 13824k
   KERNEL_INITRAMFS := \
-	kernel-bin | \
-	append-dtb | \
+  kernel-bin | \
+  append-dtb | \
   gzip | \
-	uImage gzip | \
-	check-size
+  uImage gzip | \
+  check-size
 endef
 TARGET_DEVICES += keeplink_kp-9000-8xm
 
