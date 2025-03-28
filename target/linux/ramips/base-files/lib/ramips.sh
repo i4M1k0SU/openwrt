@@ -199,6 +199,9 @@ ramips_board_detect() {
 	*"Fonera 2.0N")
 		name="fonera20n"
 		;;
+	*"FON2405E")
+		name="fon2405e"
+		;;
 	*"FreeStation5")
 		name="freestation5"
 		;;
